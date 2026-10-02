@@ -1,0 +1,137 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0a0a0b, #1a1a1f);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  animation: loaderFade 1s ease 0.8s forwards;
+}
+
+.loader.hidden {
+  display: none;
+}
+
+.loader__brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-soft);
+  animation: loaderPulse 1.2s ease-in-out;
+}
+
+@keyframes loaderFade {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes loaderPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.cursor.active {
+  width: 28px;
+  height: 28px;
+  opacity: 0.4;
+  box-shadow: 0 0 18px rgba(217, 179, 109, 0.5);
+}
+
+@media (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}
+
+.reveal-delay {
+  animation: fadeUp 1.1s ease both 0.2s;
+}
+
+.empty-state {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 480px) {
+  .nav__brand {
+    font-size: 1.4rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .cart-panel {
+    width: 100%;
+  }
+
+  .product-modal__panel {
+    grid-template-columns: 1fr;
+    padding: 24px 18px;
+  }
+
+  .gallery-main img {
+    height: 380px;
+  }
+
+  .section-heading h2 {
+    font-size: 2.2rem;
+  }
+
+  .newsletter-box {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Smooth transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Link focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 2px;
+}
